@@ -1,5 +1,5 @@
 .section-about {
-  background-color: #f7f7f7;
+  background-color: $color-grey-light-1;
   padding: 25rem 0;
   margin-top: -20vh;
 }
@@ -15,8 +15,14 @@
   transform: skewY(-7deg);
   margin-top: -10rem;
 
-  // Direct children selector
+  // > is a direct children selector
   & > * {
     transform: skewY(7deg);
   }
+}
+
+.section-tours {
+  background-color: $color-grey-light-1;
+  padding: 25rem 0 50rem 0;
+  margin-top: -10rem;
 }
