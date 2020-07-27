@@ -12,3 +12,51 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+// MEDIA QUERY MANAGER
+
+/*
+0 - 600px:    Phone
+600 - 900px:  Tablet portrait
+900 - 1200px: Tablet landscape
+[1200 - 1800] is where normal styles apply
+1800px + :    Big desktop
+
+@content is for properties as arguments
+
+$breakpoint argument choices:
+- phone
+- tab-port (tablet portrait)
+- tab-land (tablet landscape)
+- big-desktop
+
+1em = 16px (our setting of base font-size does not work in media queries.
+We cannot use rem in mmedia queries, have to use em instead
+
+em = px size of screen / standard root font-size
+600px / 16px = 37.5em
+- phone:        600px -> 37.5em
+- tab-port:     900px -> 56.25em
+- tab-land:     1200px -> 75em
+- big-desktop:  1800px -> 112.5em
+By not using px we are allowing user to change default font-size, thus giving more accessability
+
+ORDER FOR WRRTING MEDIA QUERIES:
+base + typography > general layout + grid > page layout > components
+*/
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 37.5em) { @content }; // 600px
+  }
+  @if $breakpoint == tab-port {
+    @media (max-width: 56.25em) { @content }; // 900px
+  }
+  @if $breakpoint == tab-land {
+    @media (max-width: 75em) { @content }; // 1200px
+  }
+  @if $breakpoint == big-desktop {
+    @media (min-width: 112.5em) { @content }; // 1800px
+  }
+  
+}
