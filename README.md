@@ -1,10 +1,6 @@
 To run the page:
-
-<!-- In a separate terminal tab: -->
-npm run compile:sass
-
-<!-- In a separate terminal tab (needs live-server global install): -->
-live-server
+npm run build:css
+npm run start
 
 <!-- To get the icons -->
 Icons are downloaded from https://linea.io/
@@ -12,6 +8,8 @@ Icons are downloaded from https://linea.io/
 In the downloaded package select:
 _basic>_ICONFONT>fonts
 _basic>_ICONFONT>styles.css
+And move these files to the project directory
+rename styles.css to icon-font.css
 
 Rename styles.css to icon-font.css
 In the index.html add

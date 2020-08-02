@@ -8,9 +8,14 @@
   z-index: 9999;
   opacity: 0;
   visibility: hidden;
-  // opacity: 1;
-  // visibility: visible;
   transition: all .3s;
+  
+
+  @supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);  //only works on Safari so far, with webkit.
+    background-color: rgba($color-black, .3);
+  }
 
   &__content {
     @include center-horizontal-vertical;
